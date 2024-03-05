@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Search } from '@mui/icons-material';
+import { Search, ShoppingCartOutlined } from '@mui/icons-material';
+import { Badge } from '@mui/material';
 
 const Container = styled.div`
   height: 60px;
@@ -27,11 +28,24 @@ const Input = styled.input`
 `;
 const Logo = styled.h2`
   font-weight: bold;
-  margin-right: auto;
+  flex: 1;
+  display: flex;
+  aligh-item: center;
+  justify-content: flex-end
 `;
 const Right = styled.div`
-  margin-left: auto; /* Pushes the right content to the right end */
+  margin-left: auto; 
+  flex: 1;
+  display: flex;
+  aligh-item: center;
+  justify-content: flex-end
 `;
+
+const MenuItem = styled.div`
+font-size: 14px;
+curson: pointer;
+margin-left: 25px
+`
 
 const Navbar = () => {
   return (
@@ -39,11 +53,19 @@ const Navbar = () => {
       <Wrapper>
         <Language>English</Language>
         <SearchContainer>
-          <Input />
-          <Search />
+          <Input style={{height: "25px", width: "250px"}}/>
+          <Search style={{color: "gray", fontSize: "18px"}} />
         </SearchContainer>
         <Logo>Ecommerce</Logo>
-        <Right>Right</Right>
+        <Right>
+            <MenuItem>Register</MenuItem>
+            <MenuItem>Login</MenuItem>
+            <MenuItem>
+                <Badge badgeContent= {4} color='primary'>
+                        <ShoppingCartOutlined/> 
+                </Badge>
+            </MenuItem>
+        </Right>
       </Wrapper>
     </Container>
   );
